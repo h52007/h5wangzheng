@@ -2,7 +2,7 @@
     // 热销单品列表渲染
     const $list = $('#hotSale ul');
     $.ajax({
-        url: 'http://localhost/wangzheng/php/listdata.php',
+        url: 'http://localhost/wangzheng/php/alldata.php',
         dataType: 'json'
     }).done(function(data) {
         let $strhtml = '';
@@ -27,7 +27,7 @@
     // 手机列表渲染
     const $phone = $('#phone ul');
     $.ajax({
-        url: 'http://localhost/wangzheng/php/listdata.php',
+        url: 'http://localhost/wangzheng/php/alldata.php',
         dataType: 'json'
     }).done(function(data) {
         let $strhtml = '';
@@ -41,6 +41,9 @@
 </a>
 </li>
 `;
+            if (index == 19) {
+                return false
+            }
         });
         $strhtml += '';
         $phone.html($strhtml);
@@ -49,7 +52,7 @@
     // 笔记本电脑列表渲染
     const $notebook = $('#notebook ul');
     $.ajax({
-        url: 'http://localhost/wangzheng/php/listdata.php',
+        url: 'http://localhost/wangzheng/php/alldata.php',
         dataType: 'json'
     }).done(function(data) {
         let $strhtml = '';
@@ -74,7 +77,7 @@
     // 精品平板列表渲染
     const $slab = $('#slab ul');
     $.ajax({
-        url: 'http://localhost/wangzheng/php/listdata.php',
+        url: 'http://localhost/wangzheng/php/alldata.php',
         dataType: 'json'
     }).done(function(data) {
         let $strhtml = '';
@@ -99,7 +102,7 @@
     // 智能穿戴列表渲染
     const $smartWear = $('#smartWear ul');
     $.ajax({
-        url: 'http://localhost/wangzheng/php/listdata.php',
+        url: 'http://localhost/wangzheng/php/alldata.php',
         dataType: 'json'
     }).done(function(data) {
         let $strhtml = '';
@@ -140,7 +143,31 @@
         $cartlist.hide();
     })
 })()
-
+// 二级菜单渲染
+!
+function() {
+    const $cartlist = $('.cartlist ul');
+    $.ajax({
+        url: 'http://localhost/wangzheng/php/alldata.php',
+        dataType: 'json'
+    }).done(function(data) {
+        let $strhtml = '';
+        $.each(data, function(index, value) {
+            $strhtml += `
+<li>
+<a href="list.html" target="_blank">
+    <img class="lazy" src="${value.url}" width="100" height="80"/>
+</a>
+</li>
+`;
+            if (index == 9) {
+                return false
+            }
+        });
+        $strhtml += '';
+        $cartlist.html($strhtml);
+    });
+}()
 // 大轮播图
 ! function() {
     //tab切换
