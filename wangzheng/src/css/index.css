@@ -113,27 +113,114 @@ li:hover {
 }
 
 
-/* 导航 */
+/* 导航栏 */
 
 #nav {
-    width: 100%;
+    width: 1920px;
     height: 550px;
-    border: 1px solid black;
+}
+
+
+/* 幻灯片效果 */
+
+.banner {
+    width: 1920px;
+    height: 550px;
     position: relative;
 }
 
-#nav ul {
-    width: 200px;
-    height: 440px;
+.banner ul li {
+    height: 550px;
     position: absolute;
-    top: 10px;
-    left: 108px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 0;
 }
 
-#nav ul li {
+.banner ul li:nth-child(1) {
+    opacity: 1;
+    z-index: 3;
+}
+
+
+/* 小圆圈 */
+
+.banner ol {
+    position: absolute;
+    width: 240px;
+    height: 20px;
+    right: 350px;
+    bottom: 55px;
+    z-index: 10;
+}
+
+.banner ol li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 1px solid black;
+    text-indent: -99999px;
+    cursor: pointer;
+}
+
+.banner ol li.active {
+    background: #afafaf;
+}
+
+
+/* 左右箭头 */
+
+#right,
+#left {
+    font-size: 50px;
+    color: white;
+    font-family: verdana;
+    position: absolute;
+    text-decoration: none;
+    top: 200px;
+    z-index: 10;
+}
+
+#left {
+    left: 608px;
+}
+
+#right {
+    right: 420px;
+}
+
+#right:hover,
+#left:hover {
+    color: #000;
+}
+
+
+/* 一级菜单 */
+
+.menu ul {
+    width: 200px;
+    height: 440px;
+    position: relative;
+    bottom: 530px;
+    left: 360px;
+    z-index: 10;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.menu ul li {
     width: 100%;
     height: 10%;
     line-height: 44px;
+    text-indent: 10px;
+}
+
+.menu ul li span {
+    position: absolute;
+    left: 170px;
 }
 
 
@@ -144,8 +231,9 @@ li:hover {
     height: 440px;
     border: 1px solid #f9f9f9;
     position: relative;
-    top: 10px;
-    left: 308px;
+    bottom: 970px;
+    left: 560px;
+    z-index: 10;
 }
 
 
@@ -159,6 +247,7 @@ li:hover {
     border-radius: 10px;
     position: relative;
     top: -44px;
+    z-index: 10;
 }
 
 
@@ -297,8 +386,54 @@ li:hover {
 #smallLunbo {
     width: 1200px;
     height: 120px;
-    border: 1px solid black;
     margin: 30px 0;
+}
+
+.bannerSmall {
+    width: 1200px;
+    height: 120px;
+    position: relative;
+}
+
+.bannerSmall ul li {
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 0;
+}
+
+.bannerSmall ul li:nth-child(1) {
+    opacity: 1;
+    z-index: 3;
+}
+
+
+/* 小圆圈 */
+
+.bannerSmall ol {
+    position: absolute;
+    width: 240px;
+    height: 20px;
+    right: -100px;
+    bottom: 0px;
+    z-index: 10;
+}
+
+.bannerSmall ol li {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 1px solid black;
+    text-indent: -99999px;
+    cursor: pointer;
+}
+
+.bannerSmall ol li.active {
+    background: #afafaf;
 }
 
 
