@@ -15,8 +15,18 @@ li {
     list-style: none;
 }
 
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+li .price {
+    text-decoration: none;
+    color: red;
+    text-align: center;
+}
+
 li:hover {
-    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
     cursor: pointer;
 }
 
@@ -207,8 +217,8 @@ li:hover {
     bottom: 530px;
     left: 360px;
     z-index: 10;
-    background-color: white;
-    border-radius: 5px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
 }
 
 .menu ul li {
@@ -216,6 +226,10 @@ li:hover {
     height: 10%;
     line-height: 44px;
     text-indent: 10px;
+}
+
+.menu ul li:hover {
+    background-color: white;
 }
 
 .menu ul li span {
@@ -228,19 +242,36 @@ li:hover {
 
 .cartlist .item {
     width: 400px;
-    height: 440px;
+    height: 400px;
+    padding: 20px;
     border: 1px solid #f9f9f9;
     position: relative;
     bottom: 970px;
     left: 560px;
     z-index: 10;
+    display: none;
+    background-color: white;
+}
+
+.cartlist .item:nth-child(2) {
+    width: 600px;
+    height: 400px;
 }
 
 .cartlist .item li {
     width: 200px;
-    height: 88px;
+    height: 80px;
+    border-radius: 5px;
     float: left;
-    background-color: white;
+    line-height: 88px;
+}
+
+.cartlist .item p {
+    text-indent: 120px;
+}
+
+.cartlist .item li:hover {
+    background-color: #eee;
 }
 
 
@@ -377,6 +408,10 @@ li:hover {
     display: inline-block;
 }
 
+#newProduct ul li:hover {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+}
+
 #newProduct ul li:nth-child(4) {
     margin-right: 1px;
 }
@@ -420,6 +455,10 @@ li:hover {
     background-color: #f9f9f9;
 }
 
+#hotSale .hotSale-r li:hover {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+}
+
 #hotSale .hotSale-r li:nth-child(5) {
     margin-top: 24px;
 }
@@ -443,6 +482,14 @@ li:hover {
     width: 1200px;
     height: 311px;
     border: 1px solid black;
+}
+
+#boutique li {
+    width: 230px;
+    height: 290px;
+    margin-left: 10px;
+    float: left;
+    background-color: #f9f9f9;
 }
 
 
@@ -613,15 +660,6 @@ li:hover {
 }
 
 
-/* 智能穿戴切换 */
-
-#smartWear_tab {
-    width: 1210px;
-    height: 240px;
-    background-color: #f9f9f9;
-}
-
-
 /* 智慧屏 */
 
 
@@ -635,6 +673,37 @@ li:hover {
 
 
 /* 精品配件 */
+
+
+/* 楼梯效果 */
+
+
+/* 右侧楼梯 */
+
+#loutinav {
+    position: fixed;
+    top: 280px;
+    right: 0px;
+}
+
+#loutinav ul li {
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: right;
+    cursor: pointer;
+    color: gray;
+}
+
+#loutinav ul li.active span {
+    border-right: 1px solid brown;
+    color: black;
+}
+
+#loutinav ul li:hover span {
+    color: black;
+}
 
 
 /* 底部 */

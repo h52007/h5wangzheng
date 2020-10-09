@@ -19,7 +19,6 @@
                                 <img class="lazy" data-original="${value.url}" width="200" height="200"/>
                                 <p>${value.sid}${value.title}</p>
                                 <span class="price">￥${value.price}</span>
-                                <span>${value.sailnumber}</span>
                             </a>
                         </li>
                     `;
@@ -70,7 +69,6 @@
                                         <img src="${value.url}"/>
                                         <p>${value.sid}${value.title}</p>
                                         <span class="price">￥${value.price}</span>
-                                        <span>${value.sailnumber}</span>
                                     </a>
                                 </li>
                             `;

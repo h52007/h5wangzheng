@@ -9,7 +9,7 @@
         $.each(data, function(index, value) {
             $strhtml += `
 <li>
-<a href="detail.html?sid=${value.sid}" target="_blank">
+<a href="detail.html" target="_blank">
     <img class="lazy" src="${value.url}" width="200" height="200"/>
     <p>${value.sid}${value.title}</p>
     <span class="price">￥${value.price}</span>
@@ -23,7 +23,30 @@
         $strhtml += '';
         $list.html($strhtml);
     });
-
+    // 精品推荐列表渲染
+    const $boutique = $('#boutique ul');
+    $.ajax({
+        url: 'http://localhost/wangzheng/php/alldata.php',
+        dataType: 'json'
+    }).done(function(data) {
+        let $strhtml = '';
+        $.each(data, function(index, value) {
+            $strhtml += `
+<li>
+<a href="detail.html" target="_blank">
+    <img class="lazy" src="${value.url}" width="200" height="200"/>
+    <p>${value.sid}${value.title}</p>
+    <span class="price">￥${value.price}</span>
+</a>
+</li>
+`;
+            if (index == 4) {
+                return false
+            }
+        });
+        $strhtml += '';
+        $boutique.html($strhtml);
+    });
     // 手机列表渲染
     const $phone = $('#phone ul');
     $.ajax({
@@ -157,6 +180,7 @@ function() {
 <li>
 <a href="list.html" target="_blank">
     <img class="lazy" src="${value.url}" width="100" height="80"/>
+    <span class="price">${value.price}</span>
 </a>
 </li>
 `;
@@ -259,4 +283,37 @@ function() {
         })
         index++;
     }, 1000);
+}()
+
+// 楼梯效果
+! function() {
+    const $loutinav = $('#loutinav');
+    const $loutili = $('#loutinav li');
+    const $louceng = $('.louti');
+    $(window).on('scroll', function() {
+        let $top = $(window).scrollTop();
+        let $pageheight = $(document).height();
+        let $clientheight = $(window).height();
+        $top >= 2000 ? $loutinav.show() : $loutinav.hide();
+        if ($clientheight + $top + 100 >= $pageheight) {
+            $loutinav.hide()
+        }
+        $louceng.each(function(index, element) {
+            let $loucengtop = $(element).offset().top + $(element).height() / 3;
+            if ($loucengtop > $top) {
+                $loutili.removeClass('active');
+                $loutili.eq(index).addClass('active');
+                return false;
+            }
+        });
+    });
+
+    //给9个楼梯添加点击事件，到楼梯对应的楼层上
+    $loutili.not('.last').on('click', function() {
+        $(this).addClass('active').siblings().removeClass('active');
+        let $loucengtop = $louceng.eq($(this).index()).offset().top;
+        $('html,body').animate({
+            scrollTop: $loucengtop
+        })
+    });
 }()

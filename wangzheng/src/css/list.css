@@ -74,6 +74,10 @@ li {
     overflow: hidden;
 }
 
+.list li:hover {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+}
+
 .list li img {
     width: 200px;
     height: 200px;
@@ -82,4 +86,10 @@ li {
 
 .list li span {
     display: block;
+}
+
+button {
+    position: relative;
+    left: -550px;
+    top: -7px;
 }
